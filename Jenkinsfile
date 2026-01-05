@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Cleanup workspace') {
-            steps {
-                deleteDir()
-            }
-        }
         stage('Build') {
             agent {
                 docker {
@@ -15,6 +10,8 @@ pipeline {
                 }
             }
             steps {
+                deleteDir()
+                checkout scm
                 sh '''
                     ls -la
                     node --version
