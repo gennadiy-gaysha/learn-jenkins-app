@@ -24,7 +24,7 @@ pipeline {
             steps {
                 sh '''
                     test -f build/index.html
-                    CI=true npm test -- --detectOpenHandles
+                    CI=true npm test --detectOpenHandles
                 '''
             }
         }
